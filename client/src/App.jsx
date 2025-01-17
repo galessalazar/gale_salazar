@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 import Modal from "./components/modal";
-import Projects from "./components/TypeWriterWithSound";
+
+import TypeWriterWithSound from "./components/TypeWriterWithSound";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -18,7 +19,7 @@ const App = () => {
       <div style={colorchange}></div>
 
       <Modal open={open} setOpen={setOpen} />
-      <Projects />
+      <TypeWriterWithSound />
     </>
   );
 };

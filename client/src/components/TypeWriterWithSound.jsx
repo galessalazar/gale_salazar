@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import "./projects.css";
-
+import "./TypeWriterWithSound.css";
+import Modal from "./modal";
 
 const TypeWriterWithSound = () => {
   const [text, setText] = useState("");
+
   const fullText = "Projects";
 
-  useEffect(() => {
-    const sound = new Audio('../../public/mechanical_keyboard.ogg');
-    console.log(sound);
-
+  const startTyping = () => {
+    const sound = new Audio("../../public/mechanical_keyboard.ogg");
     let index = 0;
 
     const typeLetter = () => {
@@ -23,13 +22,13 @@ const TypeWriterWithSound = () => {
     };
 
     typeLetter();
-
-    return () => {
-        sound.pause();
-        sound.currentTime = 0;
-    };
-  }, [fullText]);
-
-  return <h1>{text}</h1>;
+  };
+  return (
+    <div>
+      <Modal onContinue={startTyping} />
+      <h1>{text}</h1>
+    </div>
+  );
 };
+
 export default TypeWriterWithSound;
