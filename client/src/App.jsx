@@ -14,7 +14,7 @@ const App = () => {
 
     const typeLetter = () => {
       if (index < fullText.length) {
-        setText((prev) => prev + fullText.charAt(index));
+        setText(fullText.slice(0, index + 1));
         sound.currentTime = 0;
         sound.play();
         index++;
