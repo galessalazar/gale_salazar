@@ -43,9 +43,9 @@ const App = () => {
 
 const Background = styled.div`
   background-color: black;
-  color: white,
-  height: 100vh,
-  margin: 0,
+  color: white;
+  height: 100vh;
+  margin: 0;
 `;
 
 export default App;

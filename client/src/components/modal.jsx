@@ -9,7 +9,6 @@ import {
 } from "@headlessui/react";
 
 export default function Modal({ onContinue }) {
-  console.log('onContinue in Modal:', onContinue);
   // modal is the first to appear with useState set to true
   const [open, setOpen] = useState(true);
 
@@ -30,7 +29,6 @@ export default function Modal({ onContinue }) {
   if (!open) return null;
 
   return (
-    console.log('mic check'),
     <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
       <DialogBackdrop
         transition
