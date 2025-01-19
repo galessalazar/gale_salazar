@@ -1,7 +1,9 @@
 import { useState } from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
+import ProjectsPage from "./components/ProjectsPage";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -25,19 +27,26 @@ const App = () => {
     typeLetter();
   };
 
- 
-
   return (
-    <>
-        {/* <div style={colorchange}></div> */}
+    <Router>
+      
 
-        <Background>
+      <Background>
+        <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
+        <TypeWriterWithSound text={text} />
 
-          <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
-          <TypeWriterWithSound text={text} />
+        <Link to='/projects'>
+          <h2 style={{ cursor: 'pointer', color: 'white', textAlign: 'center'}}>
+            {text}
 
+          </h2>
+        </Link>
+
+        <Routes>
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
       </Background>
-    </>
+      </Router>
   );
 };
 
