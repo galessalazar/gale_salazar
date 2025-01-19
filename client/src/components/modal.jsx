@@ -1,22 +1,37 @@
 // 'use client'
-
-import { useState } from 'react'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import TypeWriterWithSound from './TypeWriterWithSound'
-
+import PropTypes from "prop-types";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
 
 export default function Modal({ onContinue }) {
-  const [open, setOpen] = useState(true)
+  console.log('onContinue in Modal:', onContinue);
+  // modal is the first to appear with useState set to true
+  const [open, setOpen] = useState(true);
 
   const handleContinue = () => {
-    // close the modal
+    // closes the modal
     setOpen(false);
-    // triggers the typing 
-    onContinue();
-  }
+
+    if (typeof onContinue === 'function') {
+    // once continue is clicked, the startTyping function begins
+
+      onContinue();
+    } else {
+      console.error('something is aloof')
+    }
+    
+  };
+
+  if (!open) return null;
 
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
+    console.log('mic check'),
+    <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -30,9 +45,11 @@ export default function Modal({ onContinue }) {
           >
             <div className="bg-white px-4 pb-4 pt-5 sm:p-4 sm:pb-4">
               <div className="sm:flex sm:items-start">
-               
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                  <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                  <DialogTitle
+                    as="h3"
+                    className="text-base font-semibold text-gray-900"
+                  >
                     Always Learning, Always Improving
                   </DialogTitle>
                   <div className="mt-2">
@@ -57,12 +74,16 @@ export default function Modal({ onContinue }) {
                 onClick={() => setOpen(false)}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
               >
-                Nah 
+                Nah
               </button>
             </div>
           </DialogPanel>
         </div>
       </div>
     </Dialog>
-  )
+  );
 }
+
+Modal.propTypes = {
+  onContinue: PropTypes.func.isRequired,
+};
