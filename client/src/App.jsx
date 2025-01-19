@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from 'styled-components'
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
 
@@ -24,21 +25,27 @@ const App = () => {
     typeLetter();
   };
 
-  const colorchange = {
-    backgroundColor: "black",
-    color: "white",
-    height: "100vh",
-    margin: 0,
-  };
+ 
 
   return (
     <>
-      <div style={colorchange}></div>
+        {/* <div style={colorchange}></div> */}
 
-      <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
-      <TypeWriterWithSound text={text} />
+        <Background>
+
+          <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
+          <TypeWriterWithSound text={text} />
+
+      </Background>
     </>
   );
 };
+
+const Background = styled.div`
+  background-color: black;
+  color: white,
+  height: 100vh,
+  margin: 0,
+`;
 
 export default App;
