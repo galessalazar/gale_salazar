@@ -1,4 +1,5 @@
 import "./TypeWriterWithSound.css";
+import PropTypes from "prop-types";
 
 const TypeWriterWithSound = ({ text }) => {
   return (
@@ -7,5 +8,9 @@ const TypeWriterWithSound = ({ text }) => {
     </div>
   );
 };
+
+TypeWriterWithSound.propTypes  = {
+  text: PropTypes.string.isRequired,
+}
 
 export default TypeWriterWithSound;
