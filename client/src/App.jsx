@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate,
 } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
@@ -31,38 +32,46 @@ const App = () => {
         sound.play();
         index++;
         setTimeout(typeLetter, 400);
-        // } else{
-        //   setTypingComplete(true);
+        
       }
     };
 
     typeLetter();
   };
 
+  useEffect(() => {
+    if( text === fullText) {
+      setTimeout(() => {
+        window.location.href = '/projects';
+      }, 1000);
+    }
+  }, [text]);
+
   return (
     <Router basename="/galessalazar/gale_salazar">
+      <Background>
+        <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
+        <TypeWriterWithSound text={text} />
+      
+
+
+<h2 style={{ color: 'black', textAlign: 'center'}}>
+  {text}
+</h2>
+
+
       <Routes>
         <Route
           path="/"
-          element={
-            <Background>
-              <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
-              <TypeWriterWithSound text={text} />
-            </Background>
-          }
-        />
-        {/* {typingComplete && (
-            <h2
-              style={{ cursor: "pointer", color: "black", textAlign: "center" }}
-              onClick={() => (window.location.href = '/galessalazar/gale_salazar/projects')} >
-              {text}
-            </h2>
-        )
-        } */}
+          element={<Navigate to='/projects' />} />
+                    <Route path="/projects" element={<ProjectsPage />} />
+                    </Routes>
 
-        {/* <Route path="/" element={<Navigate to="/projects" />} /> */}
-        <Route path="/projects" element={<ProjectsPage />} />
-      </Routes>
+            </Background>
+          
+        
+       
+
     </Router>
   );
 };
