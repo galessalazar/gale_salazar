@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview",
-    "homepage": "https://github.com/galessalazar/gale_salazar"
+    "homepage": "https://galessalazar.github.io/gale_salazar/"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
