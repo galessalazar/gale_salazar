@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
 } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
@@ -13,7 +12,7 @@ import ProjectsPage from "./components/ProjectsPage";
 const App = () => {
   const [open, setOpen] = useState(true);
   const [text, setText] = useState("");
-  const [typingComplete, setTypingComplete] = useState(false);
+  // const [typingComplete, setTypingComplete] = useState(false);
   const fullText = "Projects";
 
   const startTyping = () => {
@@ -32,8 +31,8 @@ const App = () => {
         sound.play();
         index++;
         setTimeout(typeLetter, 400);
-      } else{
-        setTypingComplete(true);
+        // } else{
+        //   setTypingComplete(true);
       }
     };
 
@@ -42,10 +41,16 @@ const App = () => {
 
   return (
     <Router basename="/galessalazar/gale_salazar">
-      <Background>
-        <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
-        <TypeWriterWithSound text={text} />
-
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Background>
+              <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
+              <TypeWriterWithSound text={text} />
+            </Background>
+          }
+        />
         {/* {typingComplete && (
             <h2
               style={{ cursor: "pointer", color: "black", textAlign: "center" }}
@@ -55,15 +60,9 @@ const App = () => {
         )
         } */}
 
-        <Routes>
-          <Route path="/" element={<Navigate to="/projects" />} />
-          <Route path="/projects" element={<Background>
-            <ProjectsPage />
-            </Background>
-            }
-             />
-        </Routes>
-      </Background>
+        {/* <Route path="/" element={<Navigate to="/projects" />} /> */}
+        <Route path="/projects" element={<ProjectsPage />} />
+      </Routes>
     </Router>
   );
 };
