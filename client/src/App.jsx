@@ -4,7 +4,7 @@ import {
   Route,
   Routes,
   useNavigate,
-  
+  Navigate,
 } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
@@ -13,11 +13,14 @@ import ProjectsPage from "./components/ProjectsPage";
 const App = () => {
   const [open, setOpen] = useState(true);
   const [text, setText] = useState("");
+  const [showTyping, setShowTyping] = useState(false);
   const fullText = "Projects";
   const navigate = useNavigate();
-  console.log(navigate);
 
   const startTyping = () => {
+    setShowTyping(true);
+    setOpen(false);
+
     const sound = new Audio(
       "/galessalazar/gale_salazar/mechanical_keyboard.ogg"
     );
@@ -41,31 +44,45 @@ const App = () => {
 
   useEffect(() => {
     if (text === fullText) {
+
       setTimeout(() => {
+        setShowTyping(false);
         navigate("/projects");
       }, 1000);
     }
   }, [text, navigate]);
 
   return (
-    // <Router basename="/galessalazar/gale_salazar">
-      <Background>
-        <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
-        <TypeWriterWithSound text={text} />
+    <>
 
-        <h2 style={{ color: "black", textAlign: "center" }}>{text}</h2>
+          {open && <Modal open={open} setOpen={setOpen} onContinue={startTyping} />}
 
-        <Routes>
-          {/* <Route
-            path="/" 
-             element={<Navigate to="/galessalazar/gale_salazar/projects" />} 
-       /> */}
-          <Route path="/projects" element={<ProjectsPage />} />
-        </Routes>
-      </Background>
-    // </Router>
+          {showTyping  ? (
+            <Background>
+              <TypeWriterWithSound text={text} />
+
+            </Background> 
+          ) : (
+
+          <Routes>
+            <Route path="/" element={<Navigate to='/intro' />} />
+            <Route path="/intro" element={<Background><TypeWriterWithSound text={text} /></Background>} />
+            <Route path="/projects" element={<ProjectsPage />} />
+          </Routes>
+          )}
+
+    </>
+
   );
 };
+
+// const Background = ( { text }) => (
+//     <StyledBackground>
+//       <TypeWriterWithSound text={text} />
+//     </StyledBackground>
+//   )
+
+
 
 const Background = styled.div`
   background-color: black;
