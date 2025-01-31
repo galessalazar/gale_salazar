@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
+  useNavigate,
+  
 } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
@@ -13,8 +13,9 @@ import ProjectsPage from "./components/ProjectsPage";
 const App = () => {
   const [open, setOpen] = useState(true);
   const [text, setText] = useState("");
-  // const [typingComplete, setTypingComplete] = useState(false);
   const fullText = "Projects";
+  const navigate = useNavigate();
+  console.log(navigate);
 
   const startTyping = () => {
     const sound = new Audio(
@@ -32,7 +33,6 @@ const App = () => {
         sound.play();
         index++;
         setTimeout(typeLetter, 400);
-        
       }
     };
 
@@ -40,39 +40,30 @@ const App = () => {
   };
 
   useEffect(() => {
-    if( text === fullText) {
+    if (text === fullText) {
       setTimeout(() => {
-        window.location.href = '/projects';
+        navigate("/projects");
       }, 1000);
     }
-  }, [text]);
+  }, [text, navigate]);
 
   return (
-    <Router basename="/galessalazar/gale_salazar">
+    // <Router basename="/galessalazar/gale_salazar">
       <Background>
         <Modal open={open} setOpen={setOpen} onContinue={startTyping} />
         <TypeWriterWithSound text={text} />
-      
 
+        <h2 style={{ color: "black", textAlign: "center" }}>{text}</h2>
 
-<h2 style={{ color: 'black', textAlign: 'center'}}>
-  {text}
-</h2>
-
-
-      <Routes>
-        <Route
-          path="/"
-          element={<Navigate to='/projects' />} />
-                    <Route path="/projects" element={<ProjectsPage />} />
-                    </Routes>
-
-            </Background>
-          
-        
-       
-
-    </Router>
+        <Routes>
+          {/* <Route
+            path="/" 
+             element={<Navigate to="/galessalazar/gale_salazar/projects" />} 
+       /> */}
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
+      </Background>
+    // </Router>
   );
 };
 

@@ -1,4 +1,9 @@
-const ProjectsPage = () => {
+import styled from "styled-components";
+
+const ProjectsPage = ( ) => {
+
+  
+
   const projects = [
     {
       name: "Lashed up Beauty",
@@ -9,7 +14,7 @@ const ProjectsPage = () => {
     },
   ];
   return (
-    <div>
+    <div style={{ color: "black"}}>
       <h1>ProjectsPage</h1>
       <div>
         <h2>{projects[0].name}</h2>
@@ -23,6 +28,7 @@ const ProjectsPage = () => {
       </div>
     </div>
   );
-};
+}
+
 
 export default ProjectsPage;
