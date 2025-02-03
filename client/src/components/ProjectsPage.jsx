@@ -8,30 +8,44 @@ const ProjectsPage = () => {
         "Built for small business owner to showcase different services, pricing, scheduling and a dashboard for technicians.",
       technologies: ["HTML", "CSS", "JAVASCRIPT", "MERN"],
       link: "https://lashed-up-beauty.onrender.com",
-      image: '/galessalazar/gale_salazar/images/Lashed_Up_Beauty.png',
+      image: "/galessalazar/gale_salazar/images/Lashed_Up_Beauty.png",
+    },
+    {
+      name: "Regex Tutorial",
+      description:
+        "This tutorial walks through the the essentials of regular expressions(regex), for those looking to learn or improve their skills with regex.",
+      technologies: ["JavaScript", "VS Code", "RegEx"],
+      link: "https://gist.github.com/galessalazar/2646cb1dbb4864c6c07f53d7c9914455",
+      image: "/galessalazar/gale_salazar/images/RegexTutorial.png",
     },
   ];
   return (
     <PageWrapper>
+      
       <ProjectCard>
         <ProjectHeader>{projects[0].name}</ProjectHeader>
-        {projects[0].image && <ProjectImage src={projects[0].image} alt={projects[0].name} />}
+        {projects[0].image && (
+          <ProjectImage src={projects[0].image} alt={projects[0].name} />
+        )}
         <ProjectDescription>{projects[0].description}</ProjectDescription>
         <Technologies>
-          <strong>Technologies: </strong>{' '}
+          <strong>Technologies: </strong>{" "}
           {projects[0].technologies.map((tech, index) => (
             <TechTag key={index}>{tech}</TechTag>
-            ))}
-        </Technologies>  
-        <ProjectLink href={projects[0].link} target='_blank' rel='noopener noreferrer'>
+          ))}
+        </Technologies>
+        <ProjectLink
+          href={projects[0].link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View Project
         </ProjectLink>
-      
       </ProjectCard>
     </PageWrapper>
-)
+  );
 };
-   
+
 const PageWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -43,7 +57,7 @@ const PageWrapper = styled.div`
 
 const ProjectCard = styled.div`
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   overflow: hidden;
   max-width: 600px;
@@ -53,8 +67,8 @@ const ProjectCard = styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   }
 `;
 
