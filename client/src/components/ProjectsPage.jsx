@@ -8,6 +8,7 @@ const ProjectsPage = () => {
         "Built for small business owner to showcase different services, pricing, scheduling and a dashboard for technicians.",
       technologies: ["HTML", "CSS", "JAVASCRIPT", "MERN"],
       link: "https://lashed-up-beauty.onrender.com",
+      image: '/galessalazar/gale_salazar/images/Lashed_Up_Beauty.png',
     },
   ];
   return (
