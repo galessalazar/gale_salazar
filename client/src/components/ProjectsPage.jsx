@@ -21,27 +21,27 @@ const ProjectsPage = () => {
   ];
   return (
     <PageWrapper>
+      {projects.map((project, index) => (
+        <ProjectCard key={index}>
+          <ProjectHeader>{project.name}</ProjectHeader>
+          {project.image && <ProjectImage src={project.image} alt={project.name} />}
+          <ProjectDescription>{project.description}</ProjectDescription>
       
-      <ProjectCard>
-        <ProjectHeader>{projects[0].name}</ProjectHeader>
-        {projects[0].image && (
-          <ProjectImage src={projects[0].image} alt={projects[0].name} />
-        )}
-        <ProjectDescription>{projects[0].description}</ProjectDescription>
         <Technologies>
-          <strong>Technologies: </strong>{" "}
-          {projects[0].technologies.map((tech, index) => (
+          <strong>Technologies: </strong>
+          {project.technologies.map((tech, index) => (
             <TechTag key={index}>{tech}</TechTag>
           ))}
         </Technologies>
         <ProjectLink
-          href={projects[0].link}
+          href={project.link}
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Project
+          Check it out!
         </ProjectLink>
       </ProjectCard>
+        ))}
     </PageWrapper>
   );
 };
