@@ -111,16 +111,16 @@ const TechTag = styled.span`
 const ProjectLink = styled.a`
   display: inline-block;
   font-size: 1rem;
-  color: #007bff;
+  color: white;
   font-weight: bold;
   text-decoration: none;
   padding: 10px 20px;
   border-raduis: 8px;
-  border: 2px solid #007bff;
+  border: 2px solid black;
   transiton: background-color 0.3s ease;
 
   &:hover {
-    background-color: #007bff;
+    background-color: black;
     color: white;
   }
 `;
