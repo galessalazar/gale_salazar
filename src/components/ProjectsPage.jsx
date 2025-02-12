@@ -115,10 +115,10 @@ const ProjectLink = styled.a`
   font-weight: bold;
   text-decoration: none;
   padding: 10px 20px;
-  border-raduis: 8px;
+  border-radius: 8px;
   border: 2px solid black;
-  blackground-color: black;
-  transiton: background-color 0.3s ease;
+  background-color: black;
+  transition: background-color 0.3s ease;
 
   &:hover {
     background-color: gray;
