@@ -117,10 +117,11 @@ const ProjectLink = styled.a`
   padding: 10px 20px;
   border-raduis: 8px;
   border: 2px solid black;
+  blackground-color: black;
   transiton: background-color 0.3s ease;
 
   &:hover {
-    background-color: black;
+    background-color: gray;
     color: white;
   }
 `;
