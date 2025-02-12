@@ -10,8 +10,9 @@
   },
   "scripts": {
     "build": "vite build",
-    "build:css": "npx tailwindcss -i ./src/App.css -o ./src/output.css --minify",
-    "deploy": "gh-pages -d client/dist"
+    "build:css": "npx tailwindcss -i ./src/App.css -o ./public/output.css --minify",
+    "deploy": "gh-pages -d client/dist",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
