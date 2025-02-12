@@ -22,7 +22,7 @@ const App = () => {
     setOpen(false);
 
     const sound = new Audio(
-      "/galessalazar/mechanical_keyboard.ogg"
+      "/mechanical_keyboard.ogg"
     );
     sound.onerror = () => {
       console.error("failed audio");
