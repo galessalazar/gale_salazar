@@ -51,7 +51,7 @@ const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f7f7f7;
+  background-color: gray;
   padding: 0 20px;
 `;
 
