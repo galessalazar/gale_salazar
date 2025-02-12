@@ -5,7 +5,7 @@ const ProjectsPage = () => {
     {
       name: "Lashed up Beauty",
       description:
-        "Built for small business owner to showcase different services, pricing, scheduling and a dashboard for technicians.",
+        "Lashed Up Beauty is a web application I developed to help a lash technician manage client bookings. Clients can view available services, select a service, and book appointments directly, with bookings populating in an authenticated dashboard with login functionality. While the project isn’t fully polished yet, I built it using React, Node.js, and MongoDB, gaining hands-on experience with API integration,  state management, and user authentication. I’m continuing to improve the project, focusing on enhancing the booking experience and adding features like real-time notifications.",
       technologies: ["HTML", "CSS", "JAVASCRIPT", "MERN"],
       link: "https://lashed-up-beauty.onrender.com",
       image: "/images/Lashed_Up_Beauty.png",
@@ -13,7 +13,7 @@ const ProjectsPage = () => {
     {
       name: "Regex Tutorial",
       description:
-        "This tutorial walks through the the essentials of regular expressions(regex), for those looking to learn or improve their skills with regex.",
+      "I created a Regex tutorial to break down some of the fundamentals of pattern matching. It was a great exercise in attention to detail, and I enjoyed learning how regular expressions can be used for things like validating input formats. While I’m not an expert, working on this helped me better understand how regex works in real-world applications and gave me a chance to practice writing technical documentation.",
       technologies: ["JavaScript", "VS Code", "RegEx"],
       link: "https://gist.github.com/galessalazar/2646cb1dbb4864c6c07f53d7c9914455",
       image: "/images/RegexTutorial.png",
@@ -24,35 +24,39 @@ const ProjectsPage = () => {
       {projects.map((project, index) => (
         <ProjectCard key={index}>
           <ProjectHeader>{project.name}</ProjectHeader>
-          {project.image && <ProjectImage src={project.image} alt={project.name} />}
+          {project.image && (
+            <ProjectImage src={project.image} alt={project.name} />
+          )}
           <ProjectDescription>{project.description}</ProjectDescription>
-      
-        <Technologies>
-          <strong>Technologies: </strong>
-          {project.technologies.map((tech, index) => (
-            <TechTag key={index}>{tech}</TechTag>
-          ))}
-        </Technologies>
-        <ProjectLink
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Check it out!
-        </ProjectLink>
-      </ProjectCard>
-        ))}
+
+          <Technologies>
+            <strong>Technologies: </strong>
+            {project.technologies.map((tech, index) => (
+              <TechTag key={index}>{tech}</TechTag>
+            ))}
+          </Technologies>
+          <ProjectLink
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Check it out!
+          </ProjectLink>
+        </ProjectCard>
+      ))}
     </PageWrapper>
   );
 };
 
 const PageWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
   min-height: 100vh;
   background-color: gray;
   padding: 0 20px;
+  gap: 20px;
 `;
 
 const ProjectCard = styled.div`
@@ -60,11 +64,19 @@ const ProjectCard = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   overflow: hidden;
-  max-width: 600px;
   width: 100%;
+
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
+  min-height: 300px;
+
   text-align: center;
   padding: 20px;
   transition: all 0.3s ease;
+  justify-content: space-between;
 
   &:hover {
     transform: translateY(-5px);
@@ -100,7 +112,7 @@ const Technologies = styled.p`
 
 const TechTag = styled.span`
   display: inline-block;
-  background-color:rgb(4, 5, 5);
+  background-color: rgb(4, 5, 5);
   color: white;
   font-size: 0.85rem;
   border-radius: 12px;
