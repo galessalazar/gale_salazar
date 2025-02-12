@@ -8,7 +8,7 @@ const ProjectsPage = () => {
         "Built for small business owner to showcase different services, pricing, scheduling and a dashboard for technicians.",
       technologies: ["HTML", "CSS", "JAVASCRIPT", "MERN"],
       link: "https://lashed-up-beauty.onrender.com",
-      image: "/galessalazar/images/Lashed_Up_Beauty.png",
+      image: "/images/Lashed_Up_Beauty.png",
     },
     {
       name: "Regex Tutorial",
@@ -16,7 +16,7 @@ const ProjectsPage = () => {
         "This tutorial walks through the the essentials of regular expressions(regex), for those looking to learn or improve their skills with regex.",
       technologies: ["JavaScript", "VS Code", "RegEx"],
       link: "https://gist.github.com/galessalazar/2646cb1dbb4864c6c07f53d7c9914455",
-      image: "/galessalazar/images/RegexTutorial.png",
+      image: "/images/RegexTutorial.png",
     },
   ];
   return (
