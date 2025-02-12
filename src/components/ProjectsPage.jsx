@@ -100,7 +100,7 @@ const Technologies = styled.p`
 
 const TechTag = styled.span`
   display: inline-block;
-  background-color: #007bff;
+  background-color:rgb(4, 5, 5);
   color: white;
   font-size: 0.85rem;
   border-radius: 12px;
