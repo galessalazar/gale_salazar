@@ -11,8 +11,10 @@
   "scripts": {
     "build": "vite build",
     "build:css": "npx tailwindcss -i ./src/App.css -o ./public/output.css --minify",
-    "deploy": "gh-pages -d client/dist",
-    "preview": "vite preview"
+    "deploy": "gh-pages -d dist",
+    "preview": "vite preview",
+    "homepage": "https://galessalazar.github.io/gale_salazar/"
+
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
