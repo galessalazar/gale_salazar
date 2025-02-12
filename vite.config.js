@@ -12,14 +12,18 @@ export default defineConfig({
     emptyOutDir: true,
     assetsDir: 'assets',
     rollupOptions: {
+        input: './index.html',
+
+
       output: {
+
         // manualChunks: false,
         // inlineDynamicImports: true,
         entryFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
-        chunkFileNames: 'assets/[name].[hash].js'
+        chunkFileNames: 'assets/[name].[hash].js',
+  
       
-      input: './index.html',
       }
     }
   },
