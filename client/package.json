@@ -9,7 +9,7 @@
     "predeploy": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "homepage": "https://galessalazar.github.io/gale_salazar/"
+    "homepage": "https://galessalazar.github.io/"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

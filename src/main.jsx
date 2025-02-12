@@ -7,7 +7,7 @@ import './output.css'
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Router basename="/gale_salazar/">
+    <Router basename="/">
       <App />
     </Router>
   </StrictMode>

@@ -13,7 +13,7 @@
     "build": "vite build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",
-    "homepage": "https://galessalazar.github.io/gale_salazar/",
+    "homepage": "https://galessalazar.github.io/",
     "dev": "vite"
 
   },

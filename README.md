@@ -9,7 +9,7 @@ Visitors are welcome to explore my projects, learn about my background, and get 
 
 1.  If you'd like to explore the code locally, you can clone the repository.
 ```bash
-git clone git@github.com:galessalazar/gale_salazar.git
+git clone git@github.com:galessalazar.git
 ```
 2.  Navigate into the project directory.
 ```bash
