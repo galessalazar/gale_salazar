@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Navbar from './Navbar'
+
 
 const ProjectsPage = () => {
   const projects = [
@@ -21,6 +23,7 @@ const ProjectsPage = () => {
   ];
   return (
     <PageWrapper>
+      <Navbar />
       {projects.map((project, index) => (
         <ProjectCard key={index}>
           <ProjectHeader>{project.name}</ProjectHeader>
@@ -49,14 +52,14 @@ const ProjectsPage = () => {
 };
 
 const PageWrapper = styled.div`
+
+
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
-  min-height: 100vh;
+  // min-height: 100vh;
   background-color: gray;
-  padding: 0 20px;
-  gap: 20px;
 `;
 
 const ProjectCard = styled.div`
