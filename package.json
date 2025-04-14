@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@material-tailwind/react": "^2.1.10",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
     "prop-types": "^15.8.1",
@@ -15,7 +16,6 @@
     "preview": "vite preview",
     "homepage": "https://galessalazar.github.io/",
     "dev": "vite"
-
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
