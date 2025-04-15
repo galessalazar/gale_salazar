@@ -29,11 +29,7 @@ import {
   Bars2Icon,
 } from "@heroicons/react/24/solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhone,
-  faEnvelope,
- 
-} from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub as faGithubBrand,
   faLinkedin as faLinkedinBrand,
@@ -160,14 +156,12 @@ function NavListMenu() {
       <MenuItem className="flex items-start gap03">
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={icon} className="text-gray-700" />
-          <Typography variant="h6" color="blue-gray" className='mb-1 mr-3'>
+          <Typography variant="h6" color="blue-gray" className="mb-1 mr-3">
             {title}
           </Typography>
         </div>
         <div className="flex items-center gap-2">
-
           <Typography variant="small" color="gray" className="font-normal">
-
             {description}
           </Typography>
         </div>
@@ -295,7 +289,7 @@ export function ComplexNavbar() {
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <IconButton
+        {/* <IconButton
           size="sm"
           color="blue-gray"
           variant="text"
@@ -303,7 +297,7 @@ export function ComplexNavbar() {
           className="ml-auto mr-2 lg:hidden"
         >
           <Bars2Icon className="h-6 w-6" />
-        </IconButton>
+        </IconButton> */}
 
         {/* <Button size="sm" variant="text">
           <span>Log In</span>
@@ -311,7 +305,7 @@ export function ComplexNavbar() {
         <ProfileMenu />
       </div>
       <MobileNav open={isNavOpen} className="overflow-scroll">
-        <NavList />
+      <NavList />
       </MobileNav>
     </Navbar>
   );

@@ -9,11 +9,12 @@ import App from "./App.jsx";
 import "./output.css";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  // REMOVED strictmode to avoid the resume pdf from rendering twice.
+  // <StrictMode>
     <Router basename="/">
       <ThemeProvider>
         <App />
       </ThemeProvider>
     </Router>
-   </StrictMode>
+  //  </StrictMode>
 );
