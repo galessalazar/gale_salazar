@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import Navbar from './Navbar'
-
+import Navbar from "./Navbar";
 
 const ProjectsPage = () => {
   const projects = [
+    // As projects increase, add to this array and they will dynamically appear
     {
       name: "Lashed up Beauty",
       description:
-        "Lashed Up Beauty is a web application I developed to help a lash technician manage client bookings. Clients can view available services, select a service, and book appointments directly, with bookings populating in an authenticated dashboard with login functionality. While the project isn’t fully polished yet, I built it using React, Node.js, and MongoDB, gaining hands-on experience with API integration,  state management, and user authentication. I’m continuing to improve the project, focusing on enhancing the booking experience and adding features like real-time notifications.",
+        "Booking Application, Dashboard stores in MongoDB, Authentication implemented with JSON Web Token ",
       technologies: ["HTML", "CSS", "JAVASCRIPT", "MERN"],
       link: "https://lashed-up-beauty.onrender.com",
       image: "/images/Lashed_Up_Beauty.png",
@@ -15,7 +15,7 @@ const ProjectsPage = () => {
     {
       name: "Regex Tutorial",
       description:
-      "I created a Regex tutorial to break down some of the fundamentals of pattern matching. It was a great exercise in attention to detail, and I enjoyed learning how regular expressions can be used for things like validating input formats. While I’m not an expert, working on this helped me better understand how regex works in real-world applications and gave me a chance to practice writing technical documentation.",
+        "Break down of the fundamentals of pattern matching. Exercise in attention to detail and  practice writing technical documentation.",
       technologies: ["JavaScript", "VS Code", "RegEx"],
       link: "https://gist.github.com/galessalazar/2646cb1dbb4864c6c07f53d7c9914455",
       image: "/images/RegexTutorial.png",
@@ -24,11 +24,14 @@ const ProjectsPage = () => {
   return (
     <PageWrapper>
       <Navbar />
+      {/* go through the array of projects */}
       {projects.map((project, index) => (
         <ProjectCard key={index}>
           <ProjectHeader>{project.name}</ProjectHeader>
           {project.image && (
-            <ProjectImage src={project.image} alt={project.name} />
+            <a href={project.link} target='_blank' rel='noreferrer'>
+              <ProjectImage src={project.image} alt={project.name} />
+            </a>
           )}
           <ProjectDescription>{project.description}</ProjectDescription>
 
