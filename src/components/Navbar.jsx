@@ -34,22 +34,11 @@ const profileMenuItems = [
     label: "Resume",
     icon: UserCircleIcon,
   },
-  // {
-  //   label: "Contact Me",
-  //   icon: Cog6ToothIcon,
-  // },
+
   {
     label: "Contact Me",
     icon: InboxArrowDownIcon,
   },
-  // {
-  //   label: "Help",
-  //   icon: LifebuoyIcon,
-  // },
-  // {
-  //   label: "Sign Out",
-  //   icon: PowerIcon,
-  // },
 ];
 
 function ProfileMenu() {
@@ -70,7 +59,7 @@ function ProfileMenu() {
             size="sm"
             alt="tania andrew"
             className="border border-gray-900 p-0.5"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+            src="/images/Photo.jpg"
           />
           <ChevronDownIcon
             strokeWidth={2.5}
@@ -85,22 +74,22 @@ function ProfileMenu() {
           const isLastItem = key === profileMenuItems.length - 1;
 
           const menuItemClasses = `flex items-center gap-2 rounded ${
-      isLastItem
-        ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-        : ""
-    }`;
+            isLastItem
+              ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+              : ""
+          }`;
 
-    const iconElement = React.createElement(icon, {
-      className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-      strokeWidth: 2,
-    });
+          const iconElement = React.createElement(icon, {
+            className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+            strokeWidth: 2,
+          });
 
-    const content = (
-      <MenuItem className={menuItemClasses}>
-        {iconElement}
-        <span className="text-sm">{label}</span>
-      </MenuItem>
-    );
+          const content = (
+            <MenuItem className={menuItemClasses}>
+              {iconElement}
+              <span className="text-sm">{label}</span>
+            </MenuItem>
+          );
 
           if (label === "Resume") {
             return (
@@ -108,68 +97,43 @@ function ProfileMenu() {
                 to="/resume"
                 key={label}
                 onClick={closeMenu}
-                className="w-full block">
-
-              
+                className="w-full block"
+              >
                 {content}
-                </Link>
+              </Link>
             );
           }
           return (
-
             <div key={label} onClick={closeMenu}>
               {content}
             </div>
           );
-        })} 
-          
+        })}
       </MenuList>
-</Menu>
+    </Menu>
   );
 }
-        // <Typography
-        //   as="span"
-        //   variant="small"
-        //   className="font-normal"
-        //   color={isLastItem ? "red" : "inherit"}
-        // >
-        //   {label}
-        // </Typography> 
-        // {/* </div>
-      
-
-    
-    
-
-  
- 
 
 // nav list menu
 const navListMenuItems = [
   {
     title: "Phone",
-    description:
-      "726-228-6211",
+    description: "726-228-6211",
   },
 
   {
     title: "Email",
-    description:
-      "gale.s.salazar22@gmail.com",
+    description: "gale.s.salazar22@gmail.com",
   },
 
   {
     title: "Github",
-    description:
-      "https://github.com/galessalazar",
+    description: "https://github.com/galessalazar",
   },
   {
     title: "LinkedIn",
-    description:
-      "www.linkedin.com/in/gale-s-salazar22",
+    description: "www.linkedin.com/in/gale-s-salazar22",
   },
- 
- 
 ];
 
 function NavListMenu() {
@@ -194,7 +158,7 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="a" href="#" variant="small" className="font-normal">
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
-              <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "}
+              {/* <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "} */}
               Contact Me{" "}
               <ChevronDownIcon
                 strokeWidth={2}
@@ -207,12 +171,21 @@ function NavListMenu() {
         </MenuHandler>
         <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
           <Card
-            color="blue"
+            color="black"
             shadow={false}
             variant="gradient"
             className="col-span-3 grid h-full w-full place-items-center rounded-md"
           >
-            <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
+            {/* <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
+            < RocketLaunchIcon src="/images/Photo.jpg" /> */}
+            <Avatar
+            variant="square"
+            // strokeWidth={1}
+            // size="sm"
+            alt="image of Gale"
+            className="h-29 w-28"
+            src="/images/Photo.jpg"
+          />
           </Card>
           <ul className="col-span-4 flex w-full flex-col gap-1">
             {renderItems}
@@ -231,26 +204,26 @@ function NavListMenu() {
 }
 
 // nav list component
-const navListItems = [
-  {
-    label: "Account",
-    icon: UserCircleIcon,
-  },
-  {
-    label: "Blocks",
-    icon: CubeTransparentIcon,
-  },
-  {
-    label: "Docs",
-    icon: CodeBracketSquareIcon,
-  },
-];
+// const navListItems = [
+//   {
+//     label: "Account",
+//     icon: UserCircleIcon,
+//   },
+//   {
+//     label: "Blocks",
+//     icon: CubeTransparentIcon,
+//   },
+//   {
+//     label: "Docs",
+//     icon: CodeBracketSquareIcon,
+//   },
+// ];
 
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
-      {navListItems.map(({ label, icon }, key) => (
+      {/* {navListItems.map(({ label, icon }, key) => (
         <Typography
           key={label}
           as="a"
@@ -264,7 +237,7 @@ function NavList() {
             <span className="text-gray-900"> {label}</span>
           </MenuItem>
         </Typography>
-      ))}
+      ))} */}
     </ul>
   );
 }
@@ -293,7 +266,7 @@ export function ComplexNavbar() {
           href="#"
           className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
         >
-          Material Tailwind
+          Gale Salazar
         </Typography>
         <div className="hidden lg:block">
           <NavList />
@@ -308,9 +281,9 @@ export function ComplexNavbar() {
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
 
-        <Button size="sm" variant="text">
+        {/* <Button size="sm" variant="text">
           <span>Log In</span>
-        </Button>
+        </Button> */}
         <ProfileMenu />
       </div>
       <MobileNav open={isNavOpen} className="overflow-scroll">
