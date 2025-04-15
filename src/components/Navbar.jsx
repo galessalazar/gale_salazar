@@ -147,20 +147,29 @@ function ProfileMenu() {
 // nav list menu
 const navListMenuItems = [
   {
-    title: "@material-tailwind/html",
+    title: "Phone",
     description:
-      "Learn how to use @material-tailwind/html, packed with rich components and widgets.",
+      "726-228-6211",
+  },
+
+  {
+    title: "Email",
+    description:
+      "gale.s.salazar22@gmail.com",
+  },
+
+  {
+    title: "Github",
+    description:
+      "https://github.com/galessalazar",
   },
   {
-    title: "@material-tailwind/react",
+    title: "LinkedIn",
     description:
-      "Learn how to use @material-tailwind/react, packed with rich components for React.",
+      "www.linkedin.com/in/gale-s-salazar22",
   },
-  {
-    title: "Material Tailwind PRO",
-    description:
-      "A complete set of UI Elements for building faster websites in less time.",
-  },
+ 
+ 
 ];
 
 function NavListMenu() {
@@ -186,7 +195,7 @@ function NavListMenu() {
           <Typography as="a" href="#" variant="small" className="font-normal">
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
               <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "}
-              Pages{" "}
+              Contact Me{" "}
               <ChevronDownIcon
                 strokeWidth={2}
                 className={`h-3 w-3 transition-transform ${
@@ -212,7 +221,7 @@ function NavListMenu() {
       </Menu>
       <MenuItem className="flex items-center gap-2 font-medium text-blue-gray-900 lg:hidden">
         <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "}
-        Pages{" "}
+        Contact Me{" "}
       </MenuItem>
       <ul className="ml-6 flex w-full flex-col gap-1 lg:hidden">
         {renderItems}
@@ -279,7 +288,6 @@ export function ComplexNavbar() {
       className="bg-white text-black border-b border-gray-200 shadow-md px-6 py-4 w-full rounded-none"
     >
       <div className="flex items-center justify-between w-full text-blue-gray-900">
-        // {/* <div className="relative mx-auto flex items-center justify-between text-blue-gray-900"> */}
         <Typography
           as="a"
           href="#"
