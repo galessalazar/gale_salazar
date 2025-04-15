@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 import React from "react";
 import {
@@ -27,6 +28,16 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhone,
+  faEnvelope,
+ 
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub as faGithubBrand,
+  faLinkedin as faLinkedinBrand,
+} from "@fortawesome/free-brands-svg-icons";
 
 // profile menu component
 const profileMenuItems = [
@@ -57,7 +68,7 @@ function ProfileMenu() {
           <Avatar
             variant="circular"
             size="sm"
-            alt="tania andrew"
+            alt="image of Gale"
             className="border border-gray-900 p-0.5"
             src="/images/Photo.jpg"
           />
@@ -117,37 +128,49 @@ function ProfileMenu() {
 // nav list menu
 const navListMenuItems = [
   {
-    title: "Phone",
+    title: "Phone:",
     description: "726-228-6211",
+    icon: faPhone,
   },
 
   {
-    title: "Email",
+    title: "Email:",
     description: "gale.s.salazar22@gmail.com",
+    icon: faEnvelope,
   },
 
   {
-    title: "Github",
+    title: "Github:",
     description: "https://github.com/galessalazar",
+    icon: faGithubBrand,
   },
   {
-    title: "LinkedIn",
+    title: "LinkedIn:",
     description: "www.linkedin.com/in/gale-s-salazar22",
+    icon: faLinkedinBrand,
   },
 ];
 
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const renderItems = navListMenuItems.map(({ title, description }) => (
+  const renderItems = navListMenuItems.map(({ title, description, icon }) => (
+    // can link this out, currently not pointing anywhere
     <a href="#" key={title}>
-      <MenuItem>
-        <Typography variant="h6" color="blue-gray" className="mb-1">
-          {title}
-        </Typography>
-        <Typography variant="small" color="gray" className="font-normal">
-          {description}
-        </Typography>
+      <MenuItem className="flex items-start gap03">
+        <div className="flex items-center gap-2">
+          <FontAwesomeIcon icon={icon} className="text-gray-700" />
+          <Typography variant="h6" color="blue-gray" className='mb-1 mr-3'>
+            {title}
+          </Typography>
+        </div>
+        <div className="flex items-center gap-2">
+
+          <Typography variant="small" color="gray" className="font-normal">
+
+            {description}
+          </Typography>
+        </div>
       </MenuItem>
     </a>
   ));
@@ -179,13 +202,13 @@ function NavListMenu() {
             {/* <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
             < RocketLaunchIcon src="/images/Photo.jpg" /> */}
             <Avatar
-            variant="square"
-            // strokeWidth={1}
-            // size="sm"
-            alt="image of Gale"
-            className="h-29 w-28"
-            src="/images/Photo.jpg"
-          />
+              variant="square"
+              // strokeWidth={1}
+              // size="sm"
+              alt="image of Gale"
+              className="h-29 w-28"
+              src="/images/Photo.jpg"
+            />
           </Card>
           <ul className="col-span-4 flex w-full flex-col gap-1">
             {renderItems}
@@ -264,6 +287,7 @@ export function ComplexNavbar() {
         <Typography
           as="a"
           href="#"
+          style={{ fontFamily: "Lato, sans-serif", fontWeight: 700 }}
           className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
         >
           Gale Salazar
