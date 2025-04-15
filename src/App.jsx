@@ -9,6 +9,7 @@ import {
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
 import ProjectsPage from "./components/ProjectsPage";
+import Resume from "./pages/Resume";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -68,6 +69,7 @@ const App = () => {
             <Route path="/" element={<Navigate to='/intro' />} />
             <Route path="/intro" element={<Background><TypeWriterWithSound text={text} /></Background>} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path='/resume' element={<Resume />} />
           </Routes>
           )}
 

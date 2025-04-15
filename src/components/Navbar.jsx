@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import React from "react";
 import {
   Navbar,
@@ -25,36 +27,36 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
- 
+
 // profile menu component
 const profileMenuItems = [
   {
-    label: "My Profile",
+    label: "Resume",
     icon: UserCircleIcon,
   },
+  // {
+  //   label: "Contact Me",
+  //   icon: Cog6ToothIcon,
+  // },
   {
-    label: "Edit Profile",
-    icon: Cog6ToothIcon,
-  },
-  {
-    label: "Inbox",
+    label: "Contact Me",
     icon: InboxArrowDownIcon,
   },
-  {
-    label: "Help",
-    icon: LifebuoyIcon,
-  },
-  {
-    label: "Sign Out",
-    icon: PowerIcon,
-  },
+  // {
+  //   label: "Help",
+  //   icon: LifebuoyIcon,
+  // },
+  // {
+  //   label: "Sign Out",
+  //   icon: PowerIcon,
+  // },
 ];
- 
+
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const closeMenu = () => setIsMenuOpen(false);
- 
+
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -81,36 +83,67 @@ function ProfileMenu() {
       <MenuList className="p-1">
         {profileMenuItems.map(({ label, icon }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
+
+          const menuItemClasses = `flex items-center gap-2 rounded ${
+      isLastItem
+        ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+        : ""
+    }`;
+
+    const iconElement = React.createElement(icon, {
+      className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+      strokeWidth: 2,
+    });
+
+    const content = (
+      <MenuItem className={menuItemClasses}>
+        {iconElement}
+        <span className="text-sm">{label}</span>
+      </MenuItem>
+    );
+
+          if (label === "Resume") {
+            return (
+              <Link
+                to="/resume"
+                key={label}
+                onClick={closeMenu}
+                className="w-full block">
+
+              
+                {content}
+                </Link>
+            );
+          }
           return (
-            <MenuItem
-              key={label}
-              onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
-            >
-              {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
-              })}
-              <Typography
-                as="span"
-                variant="small"
-                className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
-              >
-                {label}
-              </Typography>
-            </MenuItem>
+
+            <div key={label} onClick={closeMenu}>
+              {content}
+            </div>
           );
-        })}
+        })} 
+          
       </MenuList>
-    </Menu>
+</Menu>
   );
 }
+        // <Typography
+        //   as="span"
+        //   variant="small"
+        //   className="font-normal"
+        //   color={isLastItem ? "red" : "inherit"}
+        // >
+        //   {label}
+        // </Typography> 
+        // {/* </div>
+      
+
+    
+    
+
+  
  
+
 // nav list menu
 const navListMenuItems = [
   {
@@ -129,10 +162,10 @@ const navListMenuItems = [
       "A complete set of UI Elements for building faster websites in less time.",
   },
 ];
- 
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
- 
+
   const renderItems = navListMenuItems.map(({ title, description }) => (
     <a href="#" key={title}>
       <MenuItem>
@@ -145,7 +178,7 @@ function NavListMenu() {
       </MenuItem>
     </a>
   ));
- 
+
   return (
     <React.Fragment>
       <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
@@ -187,7 +220,7 @@ function NavListMenu() {
     </React.Fragment>
   );
 }
- 
+
 // nav list component
 const navListItems = [
   {
@@ -203,7 +236,7 @@ const navListItems = [
     icon: CodeBracketSquareIcon,
   },
 ];
- 
+
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
@@ -226,24 +259,27 @@ function NavList() {
     </ul>
   );
 }
- 
+
 export function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
- 
+
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setIsNavOpen(false),
+      () => window.innerWidth >= 960 && setIsNavOpen(false)
     );
   }, []);
- 
+
   return (
     // ADJUSTED to fill the width and stick to the top
-    <Navbar fullWidth className="bg-white text-black border-b border-gray-200 shadow-md px-6 py-4 w-full rounded-none">
-        <div className="flex items-center justify-between w-full text-blue-gray-900">
-      {/* <div className="relative mx-auto flex items-center justify-between text-blue-gray-900"> */}
+    <Navbar
+      fullWidth
+      className="bg-white text-black border-b border-gray-200 shadow-md px-6 py-4 w-full rounded-none"
+    >
+      <div className="flex items-center justify-between w-full text-blue-gray-900">
+        // {/* <div className="relative mx-auto flex items-center justify-between text-blue-gray-900"> */}
         <Typography
           as="a"
           href="#"
@@ -263,7 +299,7 @@ export function ComplexNavbar() {
         >
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
- 
+
         <Button size="sm" variant="text">
           <span>Log In</span>
         </Button>

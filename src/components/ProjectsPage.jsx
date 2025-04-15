@@ -55,11 +55,15 @@ const PageWrapper = styled.div`
 
 
   display: flex;
+  // justify-content: center;
   justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
-  // min-height: 100vh;
+  min-height: 100vh;
   background-color: gray;
+  gap: 20px;
+  width: 100%
+  box-sizing: border-box;
 `;
 
 const ProjectCard = styled.div`
@@ -70,11 +74,14 @@ const ProjectCard = styled.div`
   width: 100%;
 
   max-width: 400px;
+  // flex: 1;
+  // aspect-ratio: 1;
   display: flex;
   flex-direction: column;
 
-  flex-grow: 1;
+  // flex-grow: 1;
   min-height: 300px;
+  padding: 20px;
 
   text-align: center;
   padding: 20px;
