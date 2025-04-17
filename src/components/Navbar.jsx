@@ -150,10 +150,12 @@ const navListMenuItems = [
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const renderItems = navListMenuItems.map(({ title, description, icon }) => (
-    // can link this out, currently not pointing anywhere
-    <a href="#" key={title}>
-      <MenuItem className="flex items-start gap03">
+  const renderItems = navListMenuItems.map(({ title, description, icon }) => {
+    const goToUrl =
+      description.startsWith("http") || description.startsWith("www");
+
+    const content = (
+      <MenuItem className="flex items-start gap-3">
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={icon} className="text-gray-700" />
           <Typography variant="h6" color="blue-gray" className="mb-1 mr-3">
@@ -166,8 +168,19 @@ function NavListMenu() {
           </Typography>
         </div>
       </MenuItem>
-    </a>
-  ));
+    );
+
+    return goToUrl ? (
+      <a href={description} key={title} target="_blank" rel="noreferrer"></a>
+    ) : (
+      <Link to={description} key={title}>
+        {content}
+
+      </Link>
+    );
+
+    //  </a>
+  });
 
   return (
     <React.Fragment>
@@ -176,6 +189,7 @@ function NavListMenu() {
           <Typography as="a" href="#" variant="small" className="font-normal">
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
               {/* <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "} */}
+              {/* TOP RIGHT OF CORNER NEXT TO CIRCULAR IMAGE */}
               Contact Me{" "}
               <ChevronDownIcon
                 strokeWidth={2}
@@ -305,7 +319,7 @@ export function ComplexNavbar() {
         <ProfileMenu />
       </div>
       <MobileNav open={isNavOpen} className="overflow-scroll">
-      <NavList />
+        <NavList />
       </MobileNav>
     </Navbar>
   );
