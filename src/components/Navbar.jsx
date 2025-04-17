@@ -142,7 +142,7 @@ const navListMenuItems = [
   },
   {
     title: "LinkedIn:",
-    description: "www.linkedin.com/in/gale-s-salazar22",
+    description: "https://www.linkedin.com/in/gale-s-salazar22/",
     icon: faLinkedinBrand,
   },
 ];
