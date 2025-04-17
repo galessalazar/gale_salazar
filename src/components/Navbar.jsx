@@ -42,10 +42,10 @@ const profileMenuItems = [
     icon: UserCircleIcon,
   },
 
-  {
-    label: "Contact Me",
-    icon: InboxArrowDownIcon,
-  },
+  // {
+  //   label: "Contact Me",
+  //   icon: InboxArrowDownIcon,
+  // },
 ];
 
 function ProfileMenu() {
@@ -189,7 +189,7 @@ function NavListMenu() {
     <React.Fragment>
       <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
         <MenuHandler>
-          <Typography as="a" href="#" variant="small" className="font-normal">
+          {/* <Typography as="a" href="#" variant="small" className="font-normal"> */}
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
               {/* TOP RIGHT OF CORNER NEXT TO CIRCULAR IMAGE */}
               Contact Me{" "}
@@ -200,7 +200,7 @@ function NavListMenu() {
                 }`}
               />
             </MenuItem>
-          </Typography>
+          {/* </Typography> */}
         </MenuHandler>
         <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
           <Card
