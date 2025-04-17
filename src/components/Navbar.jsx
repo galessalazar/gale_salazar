@@ -171,7 +171,10 @@ function NavListMenu() {
     );
 
     return goToUrl ? (
-      <a href={description} key={title} target="_blank" rel="noreferrer"></a>
+      <a href={description} key={title} target="_blank" rel="noreferrer">
+        {content}
+
+      </a>
     ) : (
       <Link to={description} key={title}>
         {content}
@@ -188,7 +191,6 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="a" href="#" variant="small" className="font-normal">
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
-              {/* <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "} */}
               {/* TOP RIGHT OF CORNER NEXT TO CIRCULAR IMAGE */}
               Contact Me{" "}
               <ChevronDownIcon
@@ -207,12 +209,10 @@ function NavListMenu() {
             variant="gradient"
             className="col-span-3 grid h-full w-full place-items-center rounded-md"
           >
-            {/* <RocketLaunchIcon strokeWidth={1} className="h-28 w-28" />
-            < RocketLaunchIcon src="/images/Photo.jpg" /> */}
+           
             <Avatar
               variant="square"
-              // strokeWidth={1}
-              // size="sm"
+              strokeWidth={1}
               alt="image of Gale"
               className="h-29 w-28"
               src="/images/Photo.jpg"
@@ -234,41 +234,13 @@ function NavListMenu() {
   );
 }
 
-// nav list component
-// const navListItems = [
-//   {
-//     label: "Account",
-//     icon: UserCircleIcon,
-//   },
-//   {
-//     label: "Blocks",
-//     icon: CubeTransparentIcon,
-//   },
-//   {
-//     label: "Docs",
-//     icon: CodeBracketSquareIcon,
-//   },
-// ];
+
 
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
-      {/* {navListItems.map(({ label, icon }, key) => (
-        <Typography
-          key={label}
-          as="a"
-          href="#"
-          variant="small"
-          color="gray"
-          className="font-medium text-blue-gray-500"
-        >
-          <MenuItem className="flex items-center gap-2 ">
-            {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-            <span className="text-gray-900"> {label}</span>
-          </MenuItem>
-        </Typography>
-      ))} */}
+    
     </ul>
   );
 }
