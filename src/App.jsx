@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import {
-  Route,
-  Routes,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import Modal from "./components/modal";
 import TypeWriterWithSound from "./components/TypeWriterWithSound";
 import ProjectsPage from "./components/ProjectsPage";
@@ -22,9 +17,10 @@ const App = () => {
     setShowTyping(true);
     setOpen(false);
 
-    const sound = new Audio(
-      "/mechanical_keyboard.ogg"
-    );
+    const sound = new Audio("/mechanical_keyboard.ogg");
+    // toy with the preload or try converting to different file still laggy at first load
+    sound.preload = 'auto';
+
     sound.onerror = () => {
       console.error("failed audio");
     };
@@ -36,55 +32,50 @@ const App = () => {
         sound.currentTime = 0;
         sound.play();
         index++;
-        setTimeout(typeLetter, 400);
+        setTimeout(typeLetter, 100);
       }
     };
+         
 
-    typeLetter();
+    
+ typeLetter();
   };
 
   useEffect(() => {
     if (text === fullText) {
-
       setTimeout(() => {
         setShowTyping(false);
         navigate("/projects");
-      }, 1000);
+      }, 900);
     }
   }, [text, navigate]);
 
   return (
     <>
+      {open && <Modal open={open} setOpen={setOpen} onContinue={startTyping} />}
 
-          {open && <Modal open={open} setOpen={setOpen} onContinue={startTyping} />}
-
-          {showTyping  ? (
-            <Background>
-              <TypeWriterWithSound text={text} />
-
-            </Background> 
-          ) : (
-
-          <Routes>
-            <Route path="/" element={<Navigate to='/intro' />} />
-            <Route path="/intro" element={<Background><TypeWriterWithSound text={text} /></Background>} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path='/resume' element={<Resume />} />
-          </Routes>
-          )}
-
+      {showTyping ? (
+        <Background>
+          <TypeWriterWithSound text={text} />
+        </Background>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Navigate to="/intro" />} />
+          <Route
+            path="/intro"
+            element={
+              <Background>
+                <TypeWriterWithSound text={text} />
+              </Background>
+            }
+          />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      )}
     </>
-
   );
 };
-
-// const Background = ( { text }) => (
-//     <StyledBackground>
-//       <TypeWriterWithSound text={text} />
-//     </StyledBackground>
-//   )
-
-
 
 const Background = styled.div`
   background-color: black;
