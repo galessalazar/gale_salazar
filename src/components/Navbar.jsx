@@ -151,19 +151,22 @@ function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const renderItems = navListMenuItems.map(({ title, description, icon }) => {
-    const goToUrl =
-      description.startsWith("http") || description.startsWith("www");
+    const goToUrl = description.startsWith("https");
 
     const content = (
-      <MenuItem className="flex items-start gap-3">
+      <MenuItem
+        className={` flex items-start gap-3 ${
+          goToUrl ? "hover:bg-gray-500 cursor-pointer" : "cursor-default"
+        }w-full max-w-[500] `}
+      >
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={icon} className="text-gray-700" />
-          <Typography variant="h6" color="blue-gray" className="mb-1 mr-3">
+          <Typography variant="h6" color="blue-gray" className="mb-1 mr-3 whitespace-nowrap">
             {title}
           </Typography>
         </div>
-        <div className="flex items-center gap-2">
-          <Typography variant="small" color="gray" className="font-normal">
+        <div className="flex items-center gap-2 w-full">
+          <Typography variant="small" color="gray" className="font-normal break-words w-full">
             {description}
           </Typography>
         </div>
@@ -171,15 +174,26 @@ function NavListMenu() {
     );
 
     return goToUrl ? (
-      <a href={description} key={title} target="_blank" rel="noreferrer">
+      <a
+        href={
+          description.startsWith("https")
+            ? description
+            : `https://${description}`
+        }
+        key={title}
+        target="_blank"
+        rel="noreferrer"
+        className="group"
+      >
         {content}
-
       </a>
     ) : (
-      <Link to={description} key={title}>
+      <div key={title} className="group">
         {content}
-
-      </Link>
+      </div>
+      // <Link to={description} key={title}>
+      //   {content}
+      // </Link>
     );
 
     //  </a>
@@ -187,19 +201,19 @@ function NavListMenu() {
 
   return (
     <React.Fragment>
-      <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
-        <MenuHandler>
+      <Menu  allowHover open={isMenuOpen} handler={setIsMenuOpen}>
+        <MenuHandler >
           {/* <Typography as="a" href="#" variant="small" className="font-normal"> */}
-            <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
-              {/* TOP RIGHT OF CORNER NEXT TO CIRCULAR IMAGE */}
-              Contact Me{" "}
-              <ChevronDownIcon
-                strokeWidth={2}
-                className={`h-3 w-3 transition-transform ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
-              />
-            </MenuItem>
+          <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex ">
+            {/* TOP RIGHT OF CORNER NEXT TO CIRCULAR IMAGE */}
+            Contact Me{" "}
+            <ChevronDownIcon
+              strokeWidth={2}
+              className={`h-3 w-3 transition-transform ${
+                isMenuOpen ? "rotate-180" : ""
+              }`}
+            />
+          </MenuItem>
           {/* </Typography> */}
         </MenuHandler>
         <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
@@ -209,12 +223,11 @@ function NavListMenu() {
             variant="gradient"
             className="col-span-3 grid h-full w-full place-items-center rounded-md"
           >
-           
             <Avatar
               variant="square"
               strokeWidth={1}
               alt="image of Gale"
-              className="h-29 w-28"
+              className="w-40 h-40 object-cover object-[center_30%] rounded-md"
               src="/images/Photo.jpg"
             />
           </Card>
@@ -234,13 +247,10 @@ function NavListMenu() {
   );
 }
 
-
-
 function NavList() {
   return (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       <NavListMenu />
-    
     </ul>
   );
 }
