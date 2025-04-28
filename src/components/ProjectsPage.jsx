@@ -13,6 +13,12 @@ const ProjectsPage = () => {
       image: "/images/Lashed_Up_Beauty.png",
     },
     {
+      name: "Rapid Refresh",
+      description: "Booking application coming soon!",
+      technologies: ["PostgreSql", "Javascript"],
+      image: "/images/Coming_Soon.PNG",
+    },
+    {
       name: "Regex Tutorial",
       description:
         "Break down of the fundamentals of pattern matching. Exercise in attention to detail and  practice writing technical documentation.",
@@ -29,7 +35,7 @@ const ProjectsPage = () => {
         <ProjectCard key={index}>
           <ProjectHeader>{project.name}</ProjectHeader>
           {project.image && (
-            <a href={project.link} target='_blank' rel='noreferrer'>
+            <a href={project.link} target="_blank" rel="noreferrer">
               <ProjectImage src={project.image} alt={project.name} />
             </a>
           )}
