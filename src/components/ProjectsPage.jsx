@@ -16,7 +16,8 @@ const ProjectsPage = () => {
       name: "Rapid Refresh",
       description: "Booking application coming soon!",
       technologies: ["PostgreSql", "Javascript"],
-      image: "/images/Coming_Soon.PNG",
+      link: "https://rapid-refresh.onrender.com/",
+      image: "/images/RapidRefresh.png",
     },
     {
       name: "Regex Tutorial",
