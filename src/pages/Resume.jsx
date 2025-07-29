@@ -6,7 +6,7 @@ const Resume = () => {
     // hook runs after the component renders and empty array means it only runs once 
   useEffect(() => {
     // tells browser to open the pdf file in a new browser tab and the blank is the target
-    window.open("/Gale_Salazar.pdf", "_blank");
+    window.open("/Gale_Salazar_Portfolio_Resume.pdf", "_blank");
   }, []);
 
 
